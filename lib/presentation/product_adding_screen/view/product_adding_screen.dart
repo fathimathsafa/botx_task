@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:oreo_app/presentation/summary_screen/view/summery_screen.dart';
 
 class ScannedProductsScreen extends StatelessWidget {
-  final List<Map<String, dynamic>> scannedItems; // List of scanned items
+  final List<Map<String, dynamic>> scannedItems; 
 
   ScannedProductsScreen({required this.scannedItems});
 
@@ -12,7 +12,6 @@ class ScannedProductsScreen extends StatelessWidget {
     return Scaffold(
       body: Column(
         children: [
-          // Logo Image
           Padding(
             padding: EdgeInsets.only(right: size.width * .5),
             child: Image.asset(
@@ -21,7 +20,6 @@ class ScannedProductsScreen extends StatelessWidget {
               height: 100,
             ),
           ),
-          // Title Text
           Padding(
             padding: const EdgeInsets.all(8.0),
             child: Row(
@@ -41,7 +39,6 @@ class ScannedProductsScreen extends StatelessWidget {
               ],
             ),
           ),
-          // List of Scanned Products
           Expanded(
             child: scannedItems.isNotEmpty
                 ? ListView.builder(
@@ -74,7 +71,6 @@ class ScannedProductsScreen extends StatelessWidget {
                                 IconButton(
                                   icon: Icon(Icons.remove),
                                   onPressed: () {
-                                    // Handle quantity decrement
                                   },
                                 ),
                                 Text(
@@ -84,7 +80,6 @@ class ScannedProductsScreen extends StatelessWidget {
                                 IconButton(
                                   icon: Icon(Icons.add),
                                   onPressed: () {
-                                    // Handle quantity increment
                                   },
                                 ),
                               ],
@@ -98,19 +93,17 @@ class ScannedProductsScreen extends StatelessWidget {
                     child: Text('No products scanned yet!'),
                   ),
           ),
-          // Material Button
           Padding(
             padding: const EdgeInsets.all(16.0),
             child: MaterialButton(
               onPressed: () {
-                // Navigate to the ProductDetailsScreen with all products
                 Navigator.push(
                   context,
                   MaterialPageRoute(
                     builder: (context) => ProductDetailsScreen(
                       logoPath:
                           'assets/png-clipart-oreo-logo-sandwich-cookie-birthday-cake-biscuits-others-miscellaneous-food_1-removebg-preview.png',
-                      products: scannedItems,  // Pass the list of scanned items
+                      products: scannedItems, 
                     ),
                   ),
                 );

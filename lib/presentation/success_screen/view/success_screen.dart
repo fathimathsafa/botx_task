@@ -6,15 +6,13 @@ import 'package:oreo_app/presentation/scanner_screen/view/scanner_screen.dart';
 class SuccessScreen extends StatelessWidget {
 
   const SuccessScreen(
-      {super.key, }); // Constructor to accept email
-
+      {super.key, }); 
   @override
   Widget build(BuildContext context) {
     var size = MediaQuery.sizeOf(context);
 
     return Scaffold(
       body: SingleChildScrollView(
-        // Wrap with SingleChildScrollView
         child: Column(
           children: [
             Padding(

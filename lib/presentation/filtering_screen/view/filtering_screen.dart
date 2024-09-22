@@ -58,15 +58,14 @@ class FilteringScreen extends StatelessWidget {
               ],
             ),
           ),
-          // List of ListTiles with shadow
           Expanded(
             child: ListView.builder(
-              itemCount: 3, // Number of ListTiles
+              itemCount: 3, 
               itemBuilder: (context, index) {
                 return InkWell(
                   onTap: () {},
                   child: Card(
-                    elevation: 5, // Adjust the shadow strength
+                    elevation: 5, 
                     margin:
                         const EdgeInsets.symmetric(vertical: 8, horizontal: 16),
                     child: ListTile(

@@ -16,10 +16,9 @@ class _ScannerScreenState extends State<ScannerScreen> {
   @override
   void initState() {
     super.initState();
-    _loadScannedItems(); // Load scanned items when screen is opened
+    _loadScannedItems(); 
   }
 
-  // Load scanned items from local storage
   Future<void> _loadScannedItems() async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
     String? storedData = prefs.getString('scannedItems');
@@ -30,13 +29,11 @@ class _ScannerScreenState extends State<ScannerScreen> {
     }
   }
 
-  // Save scanned items to local storage
   Future<void> _saveScannedItems() async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
     prefs.setString('scannedItems', jsonEncode(scannedItems));
   }
 
-  // Handle QR code detection and add the product to the list
   void _onDetect(BarcodeCapture barcodeCapture) {
     final List<Barcode> barcodes = barcodeCapture.barcodes;
     final String? rawValue =
@@ -46,25 +43,21 @@ class _ScannerScreenState extends State<ScannerScreen> {
       try {
         final Map<String, dynamic> qrData = jsonDecode(rawValue);
 
-        // Ensure the scanned QR code contains image, title, and subtitle
         final String? imageUrl = qrData['image'];
         final String? title = qrData['title'];
         final String? subtitle = qrData['subtitle'];
 
         if (imageUrl != null && title != null && subtitle != null) {
           setState(() {
-            // Check if the product already exists in the list
             final existingItem = scannedItems.firstWhere(
               (item) => item['title'] == title,
               orElse: () =>
-                  {'quantity': 0}, // Return an empty map with quantity 0
+                  {'quantity': 0}, 
             );
 
             if (existingItem['quantity'] != 0) {
-              // If it exists, increase the quantity
               existingItem['quantity']++;
             } else {
-              // If it doesn't exist, add a new product
               scannedItems.add({
                 'image': imageUrl,
                 'title': title,
@@ -73,7 +66,6 @@ class _ScannerScreenState extends State<ScannerScreen> {
               });
             }
           });
-          // Save the updated scanned items list locally
           _saveScannedItems();
         } else {
           ScaffoldMessenger.of(context).showSnackBar(
@@ -88,7 +80,6 @@ class _ScannerScreenState extends State<ScannerScreen> {
     }
   }
 
-  // Navigate to the screen that displays the scanned products
   void _showScannedProductsScreen() {
     Navigator.push(
       context,
@@ -117,7 +108,7 @@ class _ScannerScreenState extends State<ScannerScreen> {
           IconButton(
             icon: Icon(Icons.list),
             onPressed:
-                _showScannedProductsScreen, // Go to scanned products screen
+                _showScannedProductsScreen, 
           ),
         ],
       ),
@@ -126,7 +117,6 @@ class _ScannerScreenState extends State<ScannerScreen> {
           Expanded(
             child: MobileScanner(onDetect: _onDetect),
           ),
-          // Button to go to the list of scanned products
           ElevatedButton(
             onPressed: _showScannedProductsScreen,
             child: Text('View Scanned Products'),
@@ -137,4 +127,3 @@ class _ScannerScreenState extends State<ScannerScreen> {
   }
 }
 
-// Scanned products screen that shows the list of scanned items

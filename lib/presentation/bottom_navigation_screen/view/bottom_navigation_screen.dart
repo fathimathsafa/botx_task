@@ -13,15 +13,12 @@ class BottomNavigationScreen extends StatefulWidget {
 }
 
 class _BottomNavigationScreenState extends State<BottomNavigationScreen> {
-  int index = 0; // Start with the first screen (index 0)
-
-  // Screens to display for each bottom navigation item
+  int index = 0; 
   late final List<Widget> screens;
 
   @override
   void initState() {
     super.initState();
-    // Initialize the screens with the provided email
     screens = [
       HomeScreen(email: widget.email),
       ScannerScreen(),
@@ -32,36 +29,36 @@ class _BottomNavigationScreenState extends State<BottomNavigationScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: screens[index], // Show the currently selected screen
+      body: screens[index],
       bottomNavigationBar: Padding(
         padding:
-            const EdgeInsets.all(15.0), // Adjust the distance to edges here
+            const EdgeInsets.all(15.0), 
         child: Container(
           decoration: BoxDecoration(
-            color: Colors.white, // Background color for the container
-            borderRadius: BorderRadius.circular(10.0), // Circular edges
+            color: Colors.white,
+            borderRadius: BorderRadius.circular(10.0), 
             boxShadow: [
               BoxShadow(
-                color: Colors.black12, // Shadow color
-                blurRadius: 10, // Shadow blur radius
-                offset: Offset(0, -5), // Shadow position (moving upward)
+                color: Colors.black12,
+                blurRadius: 10, 
+                offset: Offset(0, -5), 
               ),
             ],
           ),
           child: ClipRRect(
             borderRadius: BorderRadius.circular(
-                30.0), // Apply to both container and contents
+                30.0), 
             child: BottomNavigationBar(
               onTap: (tapIndex) {
                 setState(() {
-                  index = tapIndex; // Update the index to switch screens
+                  index = tapIndex;
                 });
               },
               type: BottomNavigationBarType.fixed,
-              selectedItemColor: Colors.blue, // Selected item color
-              unselectedItemColor: Colors.grey, // Unselected item color
-              currentIndex: index, // Track the currently selected index
-              elevation: 0, // Set elevation to 0 to prevent default shadow
+              selectedItemColor: Colors.blue, 
+              unselectedItemColor: Colors.grey, 
+              currentIndex: index, 
+              elevation: 0, 
               items: [
                 BottomNavigationBarItem(
                   icon: Icon(

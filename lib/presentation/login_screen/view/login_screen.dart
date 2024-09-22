@@ -130,9 +130,7 @@ class LoginScreen extends StatelessWidget {
               String email = emailController.text;
               String password = passwordController.text;
 
-              // Validate email and password
               if (email.isEmpty || password.isEmpty) {
-                // Show an alert dialog if validation fails
                 showDialog(
                   context: context,
                   builder: (context) => AlertDialog(
@@ -141,7 +139,7 @@ class LoginScreen extends StatelessWidget {
                     actions: [
                       TextButton(
                         onPressed: () {
-                          Navigator.of(context).pop(); // Close the dialog
+                          Navigator.of(context).pop(); 
                         },
                         child: Text('OK'),
                       ),
@@ -149,7 +147,6 @@ class LoginScreen extends StatelessWidget {
                   ),
                 );
               } else {
-                // Navigate to BottomNavigationScreen if both fields are filled
                 Navigator.push(
                   context,
                   MaterialPageRoute(

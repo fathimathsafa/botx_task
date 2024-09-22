@@ -105,7 +105,6 @@ class _SettingsScreenState extends State<SettingsScreen> {
               ),
             ),
 
-            // 5 ListTiles with CircleAvatar
             ListView.builder(
               shrinkWrap: true,
               physics: NeverScrollableScrollPhysics(),
@@ -137,7 +136,6 @@ class _SettingsScreenState extends State<SettingsScreen> {
               },
             ),
 
-            // "Write More" text
             Padding(
               padding: EdgeInsets.only(right: size.width * .7),
               child: Text(
@@ -146,7 +144,6 @@ class _SettingsScreenState extends State<SettingsScreen> {
               ),
             ),
 
-            // 2 more ListTiles with title, subtitle, and action icons
             ListTile(
               leading: CircleAvatar(
                   child: Image(image: AssetImage("assets/Notification.png"))),

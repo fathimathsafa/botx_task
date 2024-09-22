@@ -3,9 +3,8 @@ import 'package:oreo_app/presentation/filtering_screen/view/filtering_screen.dar
 import 'package:oreo_app/presentation/scanner_screen/view/scanner_screen.dart';
 
 class HomeScreen extends StatelessWidget {
-  final String email; // Field to store the email
-
-  HomeScreen({required this.email}); // Constructor to accept email
+  final String email;
+  HomeScreen({required this.email}); 
 
   @override
   Widget build(BuildContext context) {
@@ -22,7 +21,6 @@ class HomeScreen extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            // Logo at the top
             Padding(
               padding: EdgeInsets.only(right: size.width * .5),
               child: Center(
@@ -40,10 +38,10 @@ class HomeScreen extends StatelessWidget {
                 "Hello",
                 style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
               ),
-              subtitle: Text(email), // Display the passed email
+              subtitle: Text(email), 
               trailing: CircleAvatar(
                 backgroundImage:
-                    AssetImage('assets/User image.png'), // Profile image
+                    AssetImage('assets/User image.png'),
                 radius: 30,
               ),
             ),
@@ -84,7 +82,6 @@ class HomeScreen extends StatelessWidget {
               ),
             ),
 
-            // ListView with 4 items
             ListView.builder(
               shrinkWrap: true,
               physics: NeverScrollableScrollPhysics(),
@@ -144,7 +141,6 @@ class HomeScreen extends StatelessWidget {
     );
   }
 
-  // Method to build a grid item
   Widget _buildGridItem(String title, String subtitle, String imagePath) {
     return Container(
       height: 180,

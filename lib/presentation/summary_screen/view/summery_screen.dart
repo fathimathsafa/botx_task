@@ -3,7 +3,7 @@ import 'package:oreo_app/presentation/success_screen/view/success_screen.dart';
 
 class ProductDetailsScreen extends StatelessWidget {
   final String logoPath;
-  final List<Map<String, dynamic>> products; // List of scanned products
+  final List<Map<String, dynamic>> products; 
 
   ProductDetailsScreen({
     required this.logoPath,
@@ -17,19 +17,17 @@ class ProductDetailsScreen extends StatelessWidget {
     return Scaffold(
       body: Column(
         children: [
-          // Logo Image
           Padding(
             padding: EdgeInsets.only(right: size.width * .5),
             child: Center(
               child: Image.asset(
-                logoPath, // Use logoPath parameter
+                logoPath, 
                 width: size.width * .4,
                 height: size.height * .2,
                 fit: BoxFit.fitWidth,
               ),
             ),
           ),
-          // Date and Time Container
           Padding(
             padding: const EdgeInsets.all(8.0),
             child: Container(
@@ -57,7 +55,7 @@ class ProductDetailsScreen extends StatelessWidget {
                       ),
                       Spacer(),
                       Text(
-                        DateTime.now().toLocal().toString().split(' ')[0], // Date
+                        DateTime.now().toLocal().toString().split(' ')[0],
                         style: TextStyle(fontSize: 16),
                       ),
                     ],
@@ -80,7 +78,6 @@ class ProductDetailsScreen extends StatelessWidget {
             ),
           ),
 
-          // Container for all Product Details
           Expanded(
             child: Padding(
               padding: const EdgeInsets.all(8.0),
@@ -150,7 +147,6 @@ class ProductDetailsScreen extends StatelessWidget {
               ),
             ),
           ),
-          // Button
           Padding(
             padding: const EdgeInsets.all(16.0),
             child: MaterialButton(
@@ -158,7 +154,7 @@ class ProductDetailsScreen extends StatelessWidget {
                 Navigator.push(
                   context,
                   MaterialPageRoute(
-                    builder: (context) => SuccessScreen(), // Pass email here
+                    builder: (context) => SuccessScreen(), 
                   ),
                 );
               },
